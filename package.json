@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "author": "fabien",
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "express": "^4.16.1",
     "mysql": "2.18.1"
   }
