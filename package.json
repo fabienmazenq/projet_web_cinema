@@ -1,0 +1,11 @@
+{
+  "name": "projet web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "author": "fabien",
+  "dependencies": {
+    "express": "^4.16.1",
+    "mysql": "2.18.1"
+  }
+}
