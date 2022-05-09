@@ -12,7 +12,7 @@ services:
       DATABASE_PORT: 3306
       DATABASE_USERNAME: "user"
       DATABASE_PASSWORD: "password"
-      DATABASE_NAME: "database"
+      DATABASE_NAME: "projet_film"
     volumes:
       - ./certs/:/myapp/certs/
     depends_on:
@@ -23,8 +23,8 @@ services:
   mysql:
     image: mariadb:10.5
     environment:
-      MYSQL_ROOT_PASSWORD: "pa55w0rD"
-      MYSQL_DATABASE: "database"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "projet_film"
       MYSQL_USER: "user"
       MYSQL_PASSWORD: "password"
     volumes:
