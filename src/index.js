@@ -18,9 +18,10 @@ app.use('/js', express.static(path.join(__dirname, '../node_modules/bootstrap/di
 app.get('/', (req, res) => {
 
    res.sendFile(path.join(__dirname, 'views/index.html'));
-   const createtableretour = db.createTable(); 
-    const ajoutfilm = db.insertFilm("toto"); 
-   console.log(createtableretour);
+   var r = db.createTable(); 
+   console.log("résultat de la methode createTable " + r);
+   //var a = db.insertFilm("toto"); 
+
 });
 
 app.listen(PORT, function () {
