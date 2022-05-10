@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Administration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css/global.css" rel="stylesheet">
+</head>
+	<body>
+		<div class="container">
+			<div class="row mt-3 align-items-center">
+				<div class="col-lg-2 text-center text-lg-start">
+					<h1>Cinema</h1>
+				</div>
+				<div class="col-lg-7">
+					<form>
+						<div class="row">
+							<div class="col-10 pe-1">
+								<input type="text" class="form-control" id="recherche" placeholder="Rechercher un film">
+							</div>
+							<div class="col-2 ps-1">
+								<button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+							</div>
+						</div>
+					</form>	
+				</div>
+				<div class="col-lg-3 text-center text-lg-start mt-2 mt-lg-0">
+					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_connexion">Connexion</button>
+					<!-- Fenêtre de connexion modale -->
+					<div class="modal fade" id="modal_connexion" tabindex="-1" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Connectez-vous !</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						  </div>
+						  <div class="modal-body">
+							<form>
+								<label for="labelInputPseudo" class="form-label">Pseudo</label>
+								<input type="text" class="form-control" id="inputPseudo">
+								<label for="labelInputPwd" class="form-label">Mot de passe</label>
+								<input type="text" class="form-control" id="inputPwd">
+							</form>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-success">Connexion</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_inscription">Inscription</button>
+					<!-- Fenêtre d'inscription modale -->
+					<div class="modal fade" id="modal_inscription" tabindex="-1" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Rejoignez-nous !</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						  </div>
+						  <div class="modal-body">
+							<form>
+								<label for="labelInputPseudo" class="form-label">Pseudo</label>
+								<input type="text" class="form-control" id="inputPseudo">
+								<label for="labelInputPwd" class="form-label">Mot de passe</label>
+								<input type="text" class="form-control" id="inputPwd">
+							</form>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-success">Créer le compte</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 p-2">
+					<div class="card h-100">
+						<h5 class="card-header text-center">Ajouter un film</h5>
+						<div class="card-body">
+							<form>
+								<div class="row">
+									<div class="col-lg-6">
+										<label for="input_nom_film" class="form-label">Nom</label>
+										<input type="text" class="form-control" id="input_nom_film">
+									</div>
+									<div class="col-lg-6">
+										<label for="input_realisateur_film" class="form-label">Réalisateur</label>
+										<input type="text" class="form-control" id="input_realisateur_film">
+									</div>
+								</div>
+								<br/>
+								<div class="row">
+									<div class="col-lg-6">
+										<label for="input_date_sortie_film" class="form-label">Date de sortie</label>
+										<input type="date" class="form-control" id="input_date_sortie_film">
+									</div>
+									<div class="col-lg-6">
+										<label for="input_duree_film" class="form-label">Durée</label>
+										<input type="time" class="form-control" id="input_duree_film">
+									</div>
+								</div>
+								<br/>
+								<div class="row text-end">
+									<div class="col-lg-12">
+										<button type="button" class="btn btn-success">Ajouter</button>
+									</div>
+								</div>
+							</form>	
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 p-2">
+					<div class="card h-100">
+					  <h5 class="card-header text-center">Gérer les films</h5>
+					  <div class="card-body">
+							<form>
+								<div class="row">
+									<div class="col-lg-12">
+										<label for="select_gerer_film" class="form-label">Film</label>
+										<select class="form-select" aria-label="Default select example" id="select_gerer_film" name="select_gerer_film">
+										  <option selected>Choisissez un film</option>
+										  <option value="1">Le gout du sake</option>
+										  <option value="2">Memories of murder</option>
+										  <option value="3">L'impasse</option>
+										</select>
+									</div>
+								</div>
+								<br/>
+								<div class="row">
+									<div class="col-lg-6">
+										<label for="input_gerer_nom_film" class="form-label">Nom</label>
+										<input type="text" class="form-control" id="input_gerer_nom_film">
+									</div>
+									<div class="col-lg-6">
+										<label for="input_gerer_realisateur_film" class="form-label">Réalisateur</label>
+										<input type="text" class="form-control" id="input_gerer_realisateur_film">
+									</div>
+								</div>
+								<br/>
+								<div class="row">
+									<div class="col-lg-6">
+										<label for="input_gerer_date_sortie_film" class="form-label">Date de sortie</label>
+										<input type="date" class="form-control" id="input_gerer_date_sortie_film">
+									</div>
+									<div class="col-lg-6">
+										<label for="input_gerer_duree_film" class="form-label">Durée</label>
+										<input type="time" class="form-control" id="input_gerer_duree_film">
+									</div>
+								</div>
+								<br/>
+								<div class="row text-end">
+									<div class="col-lg-12">
+										<button type="button" class="btn btn-success">Modifier</button>
+										<button type="button" class="btn btn-danger">Supprimer</button>
+									</div>
+								</div>
+							</form>	
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 p-2">
+					<div class="card h-100">
+					  <h5 class="card-header text-center">Gérer les critiques</h5>
+					  <div class="card-body">
+						<form>
+							<div class="row">
+								<div class="col-lg-6">
+									<label for="select_gerer_critique_user" class="form-label">Utilisateur</label>
+									<select class="form-select" aria-label="Default select example" id="select_gerer_critique_user" name="select_gerer_critique_user">
+										<option selected>Choisissez un utilisateur</option>
+										<option value="1">Toto</option>
+										<option value="2">Tata</option>
+										<option value="3">Titi</option>
+									</select>
+								</div>
+								<div class="col-lg-6">
+									<label for="select_gerer_critique_user" class="form-label">Critique</label>
+									<select class="form-select" aria-label="Default select example" id="select_gerer_critique_user" name="select_gerer_critique_user">
+										<option selected>Choisissez une critique</option>
+										<option value="1">Critique du gout du sake</option>
+										<option value="2">Critique de l'impase</option>
+										<option value="3">Critique de memories of murder</option>
+									</select>
+								</div>
+							</div>
+							<br/>
+							<div class="row text-end">
+								<div class="col-lg-12">
+									<button type="button" class="btn btn-danger">Supprimer</button>
+								</div>
+							</div>
+						</form>	
+					  </div>
+					</div>
+				</div>
+				<div class="col-lg-6 p-2">
+					<div class="card">
+					  <h5 class="card-header text-center">Gérer les utilisateurs</h5>
+					  <div class="card-body">
+						<form>
+							<div class="row">
+								<div class="col-lg-12">
+									<label for="select_gerer_critique_user" class="form-label">Utilisateur</label>
+									<select class="form-select" aria-label="Default select example" id="select_gerer_critique_user" name="select_gerer_critique_user">
+										<option selected>Choisissez un utilisateur</option>
+										<option value="1">Toto</option>
+										<option value="2">Tata</option>
+										<option value="3">Titi</option>
+									</select>
+								</div>
+							</div>
+							<br/>
+							<div class="row">
+								<div class="col-lg-6">
+									<label for="input_gerer_user_pseudo" class="form-label">Pseudo</label>
+									<input type="text" class="form-control" id="input_gerer_user_pseudo">
+								</div>
+								<div class="col-lg-6">
+									<label for="input_gerer_user_pwd" class="form-label">Mot de passe</label>
+									<input type="text" class="form-control" id="input_gerer_user_pwd">
+								</div>
+							</div>
+							<br/>
+							<div class="row text-end">
+								<div class="col-lg-12">
+									<button type="button" class="btn btn-success">Modifier</button>
+									<button type="button" class="btn btn-danger">Supprimer</button>
+								</div>
+							</div>
+						</form>	
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

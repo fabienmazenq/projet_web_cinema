@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Projet cinema</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css/global.css" rel="stylesheet">
+</head>
+	<body>
+		<div class="container">
+			<div class="row mt-3 align-items-center">
+				<div class="col-lg-2 text-center text-lg-start">
+					<h1>Cinema</h1>
+				</div>
+				<div class="col-lg-7">
+					<form>
+						<div class="row">
+							<div class="col-10 pe-1">
+								<input type="text" class="form-control" id="recherche" placeholder="Rechercher un film">
+							</div>
+							<div class="col-2 ps-1">
+								<button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+							</div>
+						</div>
+					</form>	
+				</div>
+				<div class="col-lg-3 text-center text-lg-start mt-2 mt-lg-0">
+					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_connexion">Connexion</button>
+					<!-- Fenêtre de connexion modale -->
+					<div class="modal fade" id="modal_connexion" tabindex="-1" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Connectez-vous !</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						  </div>
+						  <div class="modal-body">
+							<form>
+								<label for="labelInputPseudo" class="form-label">Pseudo</label>
+								<input type="text" class="form-control" id="inputPseudo">
+								<label for="labelInputPwd" class="form-label">Mot de passe</label>
+								<input type="text" class="form-control" id="inputPwd">
+							</form>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-success">Connexion</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_inscription">Inscription</button>
+					<!-- Fenêtre d'inscription modale -->
+					<div class="modal fade" id="modal_inscription" tabindex="-1" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Rejoignez-nous !</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						  </div>
+						  <div class="modal-body">
+							<form>
+								<label for="labelInputPseudo" class="form-label">Pseudo</label>
+								<input type="text" class="form-control" id="inputPseudo">
+								<label for="labelInputPwd" class="form-label">Mot de passe</label>
+								<input type="text" class="form-control" id="inputPwd">
+							</form>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-success">Créer le compte</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-3">
+					<div class="row g-0 shadow">
+				<div class="col-12 p-0">
+					<div id="carouselCritiques" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+						<ol class="carousel-indicators d-none d-sm-flex m-0">
+							<li data-bs-target="#carouselCritiques" data-bs-slide-to="0" class="bg-dark active" aria-current="true"></li>
+							<li data-bs-target="#carouselCritiques" data-bs-slide-to="1" class="bg-dark"></li>
+							<li data-bs-target="#carouselCritiques" data-bs-slide-to="2" class="bg-dark"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item carousel-multiple active carousel-multiple">
+								<div class="row h-100 m-0">
+									<div class="col-12 fw-bold text-center fs-5 overflow-hidden" style="max-height:33%;line-height:26px;margin-bottom:1rem;">
+										Critique de Toto sur "Le gout du saké"
+									</div>
+									<div class="col-4 col-xl-3 text-center">
+										<img class="img-fluid" src="img/le_gout_du_sake.jpg" title="le_gout_du_sake" alt="" style="max-height:100px;">
+									</div>
+									<div class="col-8 col-xl-9">
+										<div class="row">
+											<div class="col-10 overflow-hidden text-start py-1" style="max-height:96px;">
+												Rares sont les cinéastes qui, comme Ozu, ont généré autant d’écrits contradictoires sur leur œuvre: vu par certains comme un cinéaste qui représentait 
+												toutes les qualités esthétiques nippones (Richie, Burch, Schrader), il est au contraire décrit par d’autres (Yoshida, Hasumi) comme « le moins japonais des cinéastes ». 
+												Il fut tout aussi bien critiqué par ses contemporains pour son traditionalisme et son classicisme (notamment par les cinéastes de la nouvelle vague japonaise) et porté au pinacle 
+												pour sa grande modernité, ce qui révèle sans doute le caractère paradoxal et insaisissable de son œuvre. 
+												Et s’il comparait lui-même son métier à celui d’un « marchand de tofu », ce n’était pas seulement en vertu d’une métaphore commode (le bon mot d’un auteur) 
+												mais plutôt une comparaison concrète, celle de l’artisan qui s’attacha avec sérieux à dépeindre la vie de la classe moyenne japonaise avec ses préoccupations 
+												quotidiennes (la nourriture, l’argent) et ses événements (mariage, enterrement). En ce sens, il n’est pas étonnant que le titre de son film file la métaphore culinaire 
+												(le titre original est Sanma no aji, « le goût du poisson d’automne »), la nourriture étant un élément incontournable de son œuvre (et de sa vie) car il s’agit non 
+												seulement d’un élément concret (et vital) mais c’est également le véhicule où s’incarne l’appartenance à une classe sociale (le poisson d’automne est « un vrai poisson de riche » 
+												comme le dit l’ancien professeur à ses élèves), un mode de vie (les salary men et la boisson) voire un idéal (la simplicité du riz au thé vert).
+											</div>
+											<div class="col-2 overflow-hidden text-start py-1 fw-bold d-flex align-items-center fs-3" style="max-height:96px;">
+												9/10
+											</div>
+											<div class="col-12 text-end">
+												<a href="" class="text-danger" title="Lire la suite">
+													Lire les critiques
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item carousel-multiple carousel-multiple">
+								<div class="row h-100 m-0">
+									<div class="col-12 fw-bold text-center fs-5 overflow-hidden" style="max-height:33%;line-height:26px;margin-bottom:1rem;">
+										Critique de Toto sur "Memories of murder"
+									</div>
+									<div class="col-4 col-xl-3 text-center">
+										<img class="img-fluid" src="img/memories_of_murder.jpg" title="memories_of_murder" alt="" style="max-height:100px;">
+									</div>
+									<div class="col-8 col-xl-9">
+										<div class="row">
+											<div class="col-10 overflow-hidden text-start py-1" style="max-height:96px;">
+												Bong Joon Ho est un des fers de lance de la nouvelle vague coréenne qui déferla au début des années 2000 avec ses compatriotes Park Chan-Wook (JSA, Old Boy, Mademoiselle), 
+												Kim Jee-Woon (A Bittersweet life, J’ai rencontré le diable) ou encore Na Hong-jin (The Chaser, The Strangers). 
+												Tiré d’une histoire vraie (un tueur en série tua 10 femmes avec toujours le même modus operandi), le deuxième film de Ho allait durablement marquer les esprits 
+												du thriller à l’image d’un Seven de Fincher sorti 8 ans plus tôt. Revoir Memories of Murder en 2018, quinze ans après sa sortie nous permet de réévaluer à nouveau 
+												ce film mais également de se demander s’il n’a pas joué un rôle sur le superbe Zodiac de Fincher sorti 4 ans plus tard.
+											</div>
+											<div class="col-2 overflow-hidden text-start py-1 fw-bold d-flex align-items-center fs-3" style="max-height:96px;">
+												8/10
+											</div>
+											<div class="col-12 text-end">
+												<a href="" class="text-danger" title="Lire la suite">
+													Lire les critiques
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item carousel-multiple carousel-multiple">
+								<div class="row h-100 m-0">
+									<div class="col-12 fw-bold text-center fs-5 overflow-hidden" style="max-height:33%;line-height:26px;margin-bottom:1rem;">
+										Critique de Toto sur "L'impasse"
+									</div>
+									<div class="col-4 col-xl-3 text-center">
+										<img class="img-fluid" src="img/impasse.jpg" title="memories_of_murder" alt="" style="max-height:100px;">
+									</div>
+									<div class="col-8 col-xl-9">
+										<div class="row">
+											<div class="col-10 overflow-hidden text-start py-1" style="max-height:96px;">
+												Froidement accueilli lors sa sortie en 1993, L’Impasse (Carlito’s Way) est aujourd’hui considéré comme 
+												l’un des plus grands films de son auteur, au point que les Cahiers du Cinéma l’ont consacré à l’aube des années 2000 
+												comme le meilleur film de la décennie passée. À la fois chef d’œuvre narratif de De Palma et apogée d’une méditation sur le film noir 
+												(Scarface, Les Incorruptibles, Le Dahlia noir), L’Impasse est surtout le portrait mélancolique d’un homme défiant la fatalité et le cours du temps.
+											</div>
+											<div class="col-2 overflow-hidden text-start py-1 fw-bold d-flex align-items-center fs-3" style="max-height:96px;">
+												10/10
+											</div>
+											<div class="col-12 text-end">
+												<a href="" class="text-danger" title="Lire la suite">
+													Lire les critiques
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a class="carousel-control-prev carousel-control-width" href="#carouselCritiques" role="button" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Précédent</span>
+						</a>
+						<a class="carousel-control-next carousel-control-width" href="#carouselCritiques" role="button" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Suivant</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<br/>
+			</div>
+		</div>
+		<br/>
+		<div class="container">
+			<div class="row">
+				<h2>Les films les plus récents</h2>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">9</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Le gout du sake</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">9</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Le gout du sake</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">9</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Le gout du sake</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">9</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Le gout du sake</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">9</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Le gout du sake</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">9</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Le gout du sake</p>
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<h2>Les films les mieux notés</h2>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">8</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Memories of murder</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">8</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Memories of murder</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">8</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Memories of murder</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">8</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Memories of murder</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">8</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Memories of murder</p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">8</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold">Memories of murder</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
