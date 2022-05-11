@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Administration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="../css/global.css" rel="stylesheet">
+</head>
+	<body>
+		<div class="container">
+			<div class="row mt-3 align-items-center">
+				<div class="col-lg-2 text-center text-lg-start">
+					<h1>Cinema</h1>
+				</div>
+				<div class="col-lg-7">
+					<form>
+						<div class="row">
+							<div class="col-10 pe-1">
+								<input type="text" class="form-control" id="recherche" placeholder="Rechercher un film">
+							</div>
+							<div class="col-2 ps-1">
+								<button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+							</div>
+						</div>
+					</form>	
+				</div>
+				<div class="col-lg-3 text-center text-lg-start mt-2 mt-lg-0">
+					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_connexion">Connexion</button>
+					<!-- Fenêtre de connexion modale -->
+					<div class="modal fade" id="modal_connexion" tabindex="-1" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Connectez-vous !</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						  </div>
+						  <div class="modal-body">
+							<form>
+								<label for="labelInputPseudo" class="form-label">Pseudo</label>
+								<input type="text" class="form-control" id="inputPseudo">
+								<label for="labelInputPwd" class="form-label">Mot de passe</label>
+								<input type="text" class="form-control" id="inputPwd">
+							</form>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-success">Connexion</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_inscription">Inscription</button>
+					<!-- Fenêtre d'inscription modale -->
+					<div class="modal fade" id="modal_inscription" tabindex="-1" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Rejoignez-nous !</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						  </div>
+						  <div class="modal-body">
+							<form>
+								<label for="labelInputPseudo" class="form-label">Pseudo</label>
+								<input type="text" class="form-control" id="inputPseudo">
+								<label for="labelInputPwd" class="form-label">Mot de passe</label>
+								<input type="text" class="form-control" id="inputPwd">
+							</form>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-success">Créer le compte</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="container">
+			<div class="card bg-dark text-white">
+				<img src="../img/memories_of_murder_fond.jpg" class="card-img img-fond opacity-75 d-none d-sm-block" alt="...">
+				<div class="card-img-overlay">
+					<div class="row h-100 align-items-center">
+						<div class="col-lg-4 text-center text-lg-end">
+							<img class="img-fluid" src="../img/memories_of_murder.jpg" title="memories_of_murder" alt="" style="max-height:200px;">
+						</div>
+						<div class="col-lg-8 text-center text-lg-start">
+							<div class="row">
+								<div class="col-lg-12">
+									<h2 class="d-block d-sm-none text-dark">Memories of murder&nbsp;&nbsp;&nbsp;7.5</h1>
+									<h2 class="d-none d-sm-block">Memories of murder&nbsp;&nbsp;&nbsp;7.5</h1>
+								</div>
+								<div class="col-lg-12">
+									<button type="button" class="btn btn-danger fw-bold">1</button>
+									<button type="button" class="btn btn-danger fw-bold">2</button>
+									<button type="button" class="btn btn-danger fw-bold">3</button>
+									<button type="button" class="btn btn-danger fw-bold">4</button>
+									<button type="button" class="btn btn-warning fw-bold">5</button>
+									<button type="button" class="btn btn-warning fw-bold">6</button>
+									<button type="button" class="btn btn-success fw-bold">7</button>
+									<button type="button" class="btn btn-success fw-bold">8</button>
+									<button type="button" class="btn btn-success fw-bold">9</button>
+									<button type="button" class="btn btn-success fw-bold">10</button>
+								</div>
+							</div>
+						</div>	
+					</div>	
+				</div>
+			</div>
+			<div class="row p-1">
+				<div class="col-lg-12 text-end">
+					<a href="#ecrire_une_critique" data-bs-toggle="modal">Ecrire une critique</a>
+					<!-- Modal -->
+					<div class="modal fade" id="ecrire_une_critique" tabindex="-1" aria-labelledby="ecrire_une_critique" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Critique de Memories of murders</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						  </div>
+						  <div class="modal-body text-start">
+							<form>
+								<label for="label_input_ecrire_critique_nom" class="form-label">Nom de la critique</label>
+								<input type="text" class="form-control" id="label_input_ecrire_critique_nom">
+								<label for="label_input_ecrire_critique_texte" class="form-label">Texte</label>
+								 <textarea class="form-control" id="label_input_ecrire_critique_texte" rows="3"></textarea>
+							</form>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+							<button type="button" class="btn btn-success">Publier</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="card critiques">
+					  <h5 class="card-title text-center pt-1">Critique de memories of murder par Toto</h5>
+					  <div class="card-body">
+						Ce qui frappe dans un premier temps lors de la vision du très sombre Memories of Murder, c’est la qualité de la mise en scène de Joon Ho, ces images qui restent en tête après la fin du film, 
+						cette ambiance apocalyptique et morbide. A l’aune d’une modernité galopante et d’une démocratie naissante (les événements se sont déroulés entre 86 et 91), 
+						le metteur en scène aime les ruptures de ton tout au long de son long-métrage avec des scènes très calmes, très simples pour ensuite nous emmener dans cette nuit insondable, angoissante, 
+						où la terreur peut apparaitre à tout moment. Rien ne nous sera épargné dans cette descente aux enfers. 
+						La course poursuite dans cette usine en construction est un des symboles de ce que peut représenter ce film. 
+						Une pluie sans fin qui sort ce mois-ci en reproduira parfaitement le style.
+					  </div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="card critiques">
+					  <h5 class="card-title text-center pt-1">Critique de memories of murder par Toto</h5>
+					  <div class="card-body">
+						Ce qui frappe dans un premier temps lors de la vision du très sombre Memories of Murder, c’est la qualité de la mise en scène de Joon Ho, ces images qui restent en tête après la fin du film, 
+						cette ambiance apocalyptique et morbide. A l’aune d’une modernité galopante et d’une démocratie naissante (les événements se sont déroulés entre 86 et 91), 
+						le metteur en scène aime les ruptures de ton tout au long de son long-métrage avec des scènes très calmes, très simples pour ensuite nous emmener dans cette nuit insondable, angoissante, 
+						où la terreur peut apparaitre à tout moment. Rien ne nous sera épargné dans cette descente aux enfers. 
+						La course poursuite dans cette usine en construction est un des symboles de ce que peut représenter ce film. 
+						Une pluie sans fin qui sort ce mois-ci en reproduira parfaitement le style.
+					  </div>
+					</div>
+				</div>	
+				<div class="col-lg-4">
+					<div class="card critiques">
+					  <h5 class="card-title text-center pt-1">Critique de memories of murder par Toto</h5>
+					  <div class="card-body">
+						Ce qui frappe dans un premier temps lors de la vision du très sombre Memories of Murder, c’est la qualité de la mise en scène de Joon Ho, ces images qui restent en tête après la fin du film, 
+						cette ambiance apocalyptique et morbide. A l’aune d’une modernité galopante et d’une démocratie naissante (les événements se sont déroulés entre 86 et 91), 
+						le metteur en scène aime les ruptures de ton tout au long de son long-métrage avec des scènes très calmes, très simples pour ensuite nous emmener dans cette nuit insondable, angoissante, 
+						où la terreur peut apparaitre à tout moment. Rien ne nous sera épargné dans cette descente aux enfers. 
+						La course poursuite dans cette usine en construction est un des symboles de ce que peut représenter ce film. 
+						Une pluie sans fin qui sort ce mois-ci en reproduira parfaitement le style.
+					  </div>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

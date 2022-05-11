@@ -1,0 +1,17 @@
+.carousel-control-width{
+	width:5%;
+}
+
+.carousel-item.carousel-multiple{
+	padding:0.5rem 6% !important;
+}
+
+.img-fond{
+	max-height:400px;
+	opacity:0.50;
+}
+
+.critiques{
+	overflow: auto;
+    max-height: 400px;
+}
