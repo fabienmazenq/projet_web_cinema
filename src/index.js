@@ -13,15 +13,33 @@ const app = express();
 app.use('/css', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css')))
 app.use('/js', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/js')))
 
-
+var creationTable = function (req, res, next) {
+    db.createTable(function(retour){
+      req.resultTable = retour;
+      console.log ("middleware : " + retour);
+      next();
+    });
+  }
+  
+app.use(creationTable);
 
 app.get('/', (req, res) => {
-
+  console.log('coucou depuis la racine');
    res.sendFile(path.join(__dirname, 'views/index.html'));
-   var r = db.createTable(); 
-   console.log("résultat de la methode createTable " + r);
-   //var a = db.insertFilm("toto"); 
 
+   db.insertUser("toto",function (retour){
+     console.log ("retour dans le index depuis le insert user "+ retour);
+     db.checkLogin("toto",function (retour){
+      console.log ("retour dans le index depuis le checklogin "+ retour);
+  
+    }); 
+   }); 
+   db.insertFilm("toto",function (retour){
+    console.log ("retour dans le index depuis le insert film "+ retour);
+
+  }); 
+
+   console.log("fin du get");
 });
 
 app.listen(PORT, function () {
