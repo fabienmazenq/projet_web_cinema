@@ -36,11 +36,11 @@
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						  </div>
 						  <div class="modal-body">
-							<form>
+							<form action="/connexion" method="POST">
 								<label for="labelInputPseudo" class="form-label">Pseudo</label>
-								<input type="text" class="form-control" id="inputPseudo">
+								<input type="text" class="form-control" id="inputPseudo" name="inputPseudo">
 								<label for="labelInputPwd" class="form-label">Mot de passe</label>
-								<input type="text" class="form-control" id="inputPwd">
+								<input type="text" class="form-control" id="inputPseudo" name="inputPwd">
 							</form>
 						  </div>
 						  <div class="modal-footer">
@@ -94,7 +94,7 @@
 										Critique de Toto sur "Le gout du saké"
 									</div>
 									<div class="col-4 col-xl-3 text-center">
-										<img class="img-fluid" src="img/le_gout_du_sake.jpg" title="le_gout_du_sake" alt="" style="max-height:100px;">
+										<img class="img-fluid" src="../img/le_gout_du_sake.jpg" title="le_gout_du_sake" alt="" style="max-height:100px;">
 									</div>
 									<div class="col-8 col-xl-9">
 										<div class="row">
@@ -128,7 +128,7 @@
 										Critique de Toto sur "Memories of murder"
 									</div>
 									<div class="col-4 col-xl-3 text-center">
-										<img class="img-fluid" src="img/memories_of_murder.jpg" title="memories_of_murder" alt="" style="max-height:100px;">
+										<img class="img-fluid" src="../img/memories_of_murder.jpg" title="memories_of_murder" alt="" style="max-height:100px;">
 									</div>
 									<div class="col-8 col-xl-9">
 										<div class="row">
@@ -157,7 +157,7 @@
 										Critique de Toto sur "L'impasse"
 									</div>
 									<div class="col-4 col-xl-3 text-center">
-										<img class="img-fluid" src="img/impasse.jpg" title="memories_of_murder" alt="" style="max-height:100px;">
+										<img class="img-fluid" src="../img/impasse.jpg" title="memories_of_murder" alt="" style="max-height:100px;">
 									</div>
 									<div class="col-8 col-xl-9">
 										<div class="row">
@@ -200,7 +200,16 @@
 				<h2>Les films les plus récents</h2>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<div class="card-body p-0">
+							<p class="card-text text-center fw-bold">9</p>
+						</div>
+					</div>
+					<p class="card-text text-center fw-bold"><a href="/film/1">Le gout du sake</a></p>
+				</div>
+				<div class="col-md-2 col-6">
+					<div class="card m-2">
+						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">9</p>
 						</div>
@@ -209,7 +218,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">9</p>
 						</div>
@@ -218,7 +227,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">9</p>
 						</div>
@@ -227,7 +236,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">9</p>
 						</div>
@@ -236,16 +245,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">9</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Le gout du sake</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
+						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">9</p>
 						</div>
@@ -258,7 +258,7 @@
 				<h2>Les films les mieux notés</h2>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">8</p>
 						</div>
@@ -267,7 +267,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">8</p>
 						</div>
@@ -276,7 +276,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">8</p>
 						</div>
@@ -285,7 +285,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">8</p>
 						</div>
@@ -294,7 +294,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">8</p>
 						</div>
@@ -303,7 +303,7 @@
 				</div>
 				<div class="col-md-2 col-6">
 					<div class="card m-2">
-						<img src="img/memories_of_murder.jpg" class="card-img-top" alt="...">
+						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
 						<div class="card-body p-0">
 							<p class="card-text text-center fw-bold">8</p>
 						</div>
