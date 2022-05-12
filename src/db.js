@@ -45,6 +45,8 @@ const SQL_CREATION_TABLE_NOTE = "CREATE TABLE IF NOT EXISTS note_film (" +
         "ON DELETE CASCADE" +
 	");";
 	
+const SQL_CREATION_ADMIN= "INSERT INTO utilisateur (pseudo,mot_de_passe,admin) VALUES ('admin','admin',true);";
+
 function createTable (retour){
 		
 	var connexion = mysql.createConnection({
@@ -64,27 +66,31 @@ function createTable (retour){
 				throw err;
 			}
 
-			console.log("Connected!");
+			//console.log("Connected!");
 			var sqlcreation = SQL_CREATION_TABLE_FILM.concat(SQL_CREATION_TABLE_UTILISATEUR,SQL_CREATION_TABLE_CRITIQUE,SQL_CREATION_TABLE_NOTE);
 			connexion.query(sqlcreation, function (err, result) {
 				if (err) throw err;
-				console.log("Tables created");
+				//console.log("Tables created");
 				retour("Tables created");
 			});
 		});
 }
 
 
-function insertUser (jsonUserInfo, retour){
-	var sqlCheckExiste = "SELECT * FROM utilisateur WHERE pseudo = 'totodu12'";
+function insertUser (jsonInsertUser, retour){
+
+	var user = JSON.parse(jsonInsertUser);
+
+
+	var sqlCheckExiste = "SELECT * FROM utilisateur WHERE pseudo = '" + user.pseudo + "'";
 	ligneExiste(sqlCheckExiste, function (result){
 		console.log("insert user valeur de retour de ligne existe " + result);
 		if (result == true){
-			console.log("on ajoute pas");
+			//console.log("on ajoute pas");
 			retour("L'utilisateur existe déjà, on ajoute pas");
 		} else{
-			console.log ("on ajoute");
-			var sqlinsertUser = "INSERT INTO utilisateur (pseudo,mot_de_passe,admin) VALUES ('totodu12','root',false)";
+			//console.log ("on ajoute");
+			var sqlinsertUser = "INSERT INTO utilisateur (pseudo,mot_de_passe,admin) VALUES ('" + user.pseudo + "','" + user.mot_de_passe + "'," + user.admin + ")";
 			execute(sqlinsertUser,function (err, result){
 				if (err){
 					retour("Erreur lors de l'ajout de l'utilisateur : " + err.message);
@@ -117,8 +123,36 @@ function insertFilm (jsonFilmInfo, retour){
 		}
 	});
 }
-function checkLogin (jsonINfoLogin, retour){
-	var sqlCheckExiste = "SELECT * FROM utilisateur WHERE pseudo = 'totodu12' AND mot_de_passe='root'";
+
+function getAllFilm (retour){
+	var sqlCheckExiste = "SELECT * FROM film";
+	ligneExiste(sqlCheckExiste, function (result){
+		console.log("insert film valeur de retour de ligne existe " + result);
+		if (result == true){
+			console.log("on ajoute pas");
+			retour("Le film existe déjà, on ajoute pas");
+		} else{
+			console.log ("on ajoute");
+			var sqlInsertFIlm = "INSERT INTO film (nom,description,image) VALUES ('Melancholia','Film''d acception de la mort et de la catastrophe','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjbw_9tSkgBaS67OFEtdTpujQ6ddAktyXmwBzb1xtyyavQWcb');";
+
+			execute(sqlInsertFIlm,function (err, result){
+				if (err){
+					retour("Erreur lors de l'ajout du film : " + err.message);
+				} else {
+					retour("Ajout du film ok " + result);
+				}
+			});
+		}
+	});
+}
+
+
+function checkLogin (jsonInfo, retour){
+	var user = JSON.parse(jsonInfo);
+
+	console.log ("check login json :"+ jsonInfo);
+
+	var sqlCheckExiste = "SELECT * FROM utilisateur WHERE pseudo = '" + user.pseudo + "' AND mot_de_passe='" + user.mot_de_passe + "'";
 	ligneExiste(sqlCheckExiste, function (result){
 		if (result == true){
 			console.log("Login ok");
@@ -151,7 +185,7 @@ function ligneExiste (sql,retour){
 				throw err;
 			}
 
-			console.log("Connected!");
+			//console.log("Connected!");
 			connexion.query(sql, function (err, result) {
 				if (err) {
 					throw err;
@@ -161,12 +195,12 @@ function ligneExiste (sql,retour){
 				{
 					if (result && result.length)
 					{
-						console.log("ligne existe");
+						//console.log("ligne existe");
 						retour(true);
 					}
 					else
 					{
-						console.log("ligne existe pas");
+						//console.log("ligne existe pas");
 						retour(false);
 
 					}	
