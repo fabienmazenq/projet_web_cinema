@@ -125,23 +125,12 @@ function insertFilm (jsonFilmInfo, retour){
 }
 
 function getAllFilm (retour){
-	var sqlCheckExiste = "SELECT * FROM film";
-	ligneExiste(sqlCheckExiste, function (result){
-		console.log("insert film valeur de retour de ligne existe " + result);
-		if (result == true){
-			console.log("on ajoute pas");
-			retour("Le film existe déjà, on ajoute pas");
-		} else{
-			console.log ("on ajoute");
-			var sqlInsertFIlm = "INSERT INTO film (nom,description,image) VALUES ('Melancholia','Film''d acception de la mort et de la catastrophe','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjbw_9tSkgBaS67OFEtdTpujQ6ddAktyXmwBzb1xtyyavQWcb');";
-
-			execute(sqlInsertFIlm,function (err, result){
-				if (err){
-					retour("Erreur lors de l'ajout du film : " + err.message);
-				} else {
-					retour("Ajout du film ok " + result);
-				}
-			});
+	var sqlCheckExiste = "SELECT * FROM film LIMIT 6";
+	execute(sqlCheckExiste,function (err, result){
+		if (err){
+			retour(err,null);
+		} else {
+			retour(null,result);
 		}
 	});
 }
@@ -241,4 +230,4 @@ function execute (sql, retour){
 		});
 }
 
-module.exports = {createTable,insertUser,insertFilm,checkLogin};
+module.exports = {createTable,insertUser,insertFilm,checkLogin,getAllFilm};

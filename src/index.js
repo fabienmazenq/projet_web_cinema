@@ -28,6 +28,7 @@ var creationTable = function (req, res, next) {
     admin['admin'] = true;
     var jsonData = JSON.stringify(admin);
     db.insertUser(jsonData,function(retour){});
+    db.insertFilm("",function(retour){});
 
     next();
   });
@@ -85,6 +86,14 @@ app.get('/', function(req, res)  {
 
 app.get('/film/:id', function(req, res) {
    res.sendFile(path.join(__dirname, 'views/test.html'));
+});
+app.get('/recupererFilmRecent', function(req, res) {
+    db.getAllFilm(function(err,retour){
+      if(err)
+        res.send(err.message);
+      else      
+        res.send(retour)
+    });
 });
 
 app.get('/checkSession', function(req, res) {
