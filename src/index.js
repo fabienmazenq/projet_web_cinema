@@ -48,13 +48,6 @@ app.use(sessions(
   })
   );
 
-  app.get('/toto', function(req, res){
-  
-
-    res.render(path.join(__dirname, 'views/testrender.html'), { toto:'coucou' });
-
-  });
-  
 
 app.get('/', function(req, res)  {
   
@@ -85,8 +78,16 @@ app.get('/', function(req, res)  {
 });
 
 app.get('/film/:id', function(req, res) {
-   res.sendFile(path.join(__dirname, 'views','test.html'));
+  db.getFilm(req.params.id,function(err,retour){
+    if(err)
+      res.send(err.message);
+    else      
+      res.send(retour);
+  
+  });
 });
+
+
 app.get('/recupererFilmRecent', function(req, res) {
   
     db.getAllFilm(function(err,retour){
@@ -121,6 +122,20 @@ app.post('/connexion', function(req, res)  {
     }
   }); 
 });
+app.post('/inscription', function(req, res)  {
+
+  db.insertUser(JSON.stringify(req.body),function (err,retour){
+    if (err){
+      console.log("Connexion incorrecte");
+      res.send(null);
+    } else {
+      sessionCourante = req.session;
+      sessionCourante.pseudo = req.body.pseudo;
+      console.log(sessionCourante);
+      res.send(req.body.pseudo);
+    }
+}); 
+});
 
 app.post('/ajouterFilm', function(req, res)  {
 
@@ -134,21 +149,6 @@ app.post('/ajouterFilm', function(req, res)  {
 });
 
 
-app.post('/creationcompte', function(req, res) {
-
-  var obj = {};
-  obj['pseudo'] = req.body.inputPseudoInscription;
-  obj['mot_de_passe'] = req.body.inputPwdInscription;
-  obj['admin'] = false;
-
-  var jsonData = JSON.stringify(obj);
-
-    db.insertUser(jsonData,function (retour){
-      sessionCourante.pseudo = req.body.inputPseudoInscription;
-      res.redirect('/');
-  }); 
-
-});
 app.get('/deconnexion',function(req, res) {
   req.session.destroy((err) => {
       if(err) {
@@ -162,7 +162,7 @@ app.get('/administration',function(req, res) {
   if(sessionCourante.pseudo){
     res.sendFile(path.join(__dirname, 'views','admin.html'));
   }else{
-    res.sendFile(path.join(__dirname, 'views','accueil.html'));
+    res.redirect("/");
   }
 });
 

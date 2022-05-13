@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <title>Projet cinema</title>
@@ -6,12 +6,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="css/global.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 	<body>
 		<div class="container">
 			<div class="row mt-3 align-items-center">
 				<div class="col-lg-2 text-center text-lg-start">
-					<h1>Cinema</h1>
+					<h1><a href="/">Cinema</a></h1>
 				</div>
 				<div class="col-lg-7">
 					<form>
@@ -59,10 +60,12 @@
 						<div class="modal-content">
 						  <div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Rejoignez-nous !</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							<button id="btn-close-inscription" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						  </div>
 						  <form method="post" action="/creationcompte">
 							<div class="modal-body">
+									<div id="alert-inscription">
+									</div>
 									<label for="labelInputPseudo" class="form-label">Pseudo</label>
 									<input type="text" class="form-control" name="inputPseudoInscription" id="inputPseudoInscription">
 									<label for="labelInputPwd" class="form-label">Mot de passe</label>
@@ -70,7 +73,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-								<button type="submit" class="btn btn-success">Créer le compte</button>
+								<button type="button" onclick="inscriptionSubmit()" class="btn btn-success">Créer le compte</button>
 							</div>
 						</form>
 						</div>
@@ -209,120 +212,9 @@
 		</div>
 		<br/>
 		<div class="container">
-			<div class="row">
-				<h2>Les films les plus récents</h2>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">9</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold"><a href="/film/1">Le gout du sake</a></p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">9</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Le gout du sake</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">9</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Le gout du sake</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">9</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Le gout du sake</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">9</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Le gout du sake</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/le_gout_du_sake.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">9</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Le gout du sake</p>
-				</div>
-			</div>
-			<br/>
-			<div class="row">
-				<h2>Les films les mieux notés</h2>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">8</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Memories of murder</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">8</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Memories of murder</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">8</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Memories of murder</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">8</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Memories of murder</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">8</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Memories of murder</p>
-				</div>
-				<div class="col-md-2 col-6">
-					<div class="card m-2">
-						<img src="../img/memories_of_murder.jpg" class="card-img-top" alt="...">
-						<div class="card-body p-0">
-							<p class="card-text text-center fw-bold">8</p>
-						</div>
-					</div>
-					<p class="card-text text-center fw-bold">Memories of murder</p>
-				</div>
+			<h2>Les films les plus récents</h2>
+			<div id="app" class="row">
+				<card v-for="film in films" v-bind:id="film.id" v-bind:titre="film.nom" v-bind:descr="film.description" v-bind:img="film.image"></card>
 			</div>
 		</div>
 	</body>

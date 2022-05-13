@@ -80,22 +80,23 @@ function createTable (retour){
 function insertUser (jsonInsertUser, retour){
 
 	var user = JSON.parse(jsonInsertUser);
-
+	user.pseudo = user.pseudo.replaceAll('\'', '\'\'');
+	user.mot_de_passe = user.mot_de_passe.replaceAll('\'', '\'\'');
 
 	var sqlCheckExiste = "SELECT * FROM utilisateur WHERE pseudo = '" + user.pseudo + "'";
 	ligneExiste(sqlCheckExiste, function (result){
 		console.log("insert user valeur de retour de ligne existe " + result);
 		if (result == true){
 			//console.log("on ajoute pas");
-			retour("L'utilisateur existe déjà, on ajoute pas");
+			retour("L'utilisateur existe déjà, on ajoute pas",null);
 		} else{
 			//console.log ("on ajoute");
 			var sqlinsertUser = "INSERT INTO utilisateur (pseudo,mot_de_passe,admin) VALUES ('" + user.pseudo + "','" + user.mot_de_passe + "'," + user.admin + ")";
 			execute(sqlinsertUser,function (err, result){
 				if (err){
-					retour("Erreur lors de l'ajout de l'utilisateur : " + err.message);
+					retour("Erreur lors de l'ajout de l'utilisateur : " + err.message,null);
 				} else {
-					retour("Ajout de l'utilisateur ok " + result);
+					retour(null,"Ajout de l'utilisateur ok " + result);
 				}
 			});
 		}
@@ -113,6 +114,7 @@ function insertFilm (jsonFilmInfo, retour){
 		} else{
 			console.log ("on ajoute");
 			film.description = film.description.replaceAll('\'', '\'\'');
+			film.nom = film.nom.replaceAll('\'', '\'\'');
 			var sqlInsertFIlm = "INSERT INTO film (nom,description,image) VALUES ('" + film.nom  + "','" + film.description + "','" + film.image + "');";
 
 			execute(sqlInsertFIlm,function (err, result){
@@ -136,11 +138,23 @@ function getAllFilm (retour){
 		}
 	});
 }
+function getFilm (id,retour){
+	var sqlCheckExiste = "SELECT * FROM film WHERE id=" + id;
+	execute(sqlCheckExiste,function (err, result){
+		if (err){
+			retour(err,null);
+		} else {
+			retour(null,result);
+		}
+	});
+}
 
 
 function checkLogin (jsonInfo, retour){
 	var user = JSON.parse(jsonInfo);
-
+	user.pseudo = user.pseudo.replaceAll('\'', '\'\'');
+	user.mot_de_passe = user.mot_de_passe.replaceAll('\'', '\'\'');
+	
 	console.log ("check login json :"+ jsonInfo);
 
 	var sqlCheckExiste = "SELECT * FROM utilisateur WHERE pseudo = '" + user.pseudo + "' AND mot_de_passe='" + user.mot_de_passe + "'";
@@ -232,4 +246,4 @@ function execute (sql, retour){
 		});
 }
 
-module.exports = {createTable,insertUser,insertFilm,checkLogin,getAllFilm};
+module.exports = {createTable,insertUser,insertFilm,getFilm,checkLogin,getAllFilm};
