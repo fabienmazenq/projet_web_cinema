@@ -25,7 +25,7 @@
 						</div>
 					</form>	
 				</div>
-				<div class="col-lg-3 text-center text-lg-start mt-2 mt-lg-0">
+				<div id="entete-non-connectee" class="col-lg-3 text-center text-lg-start mt-2 mt-lg-0 d-none">
 					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_connexion">Connexion</button>
 					<!-- Fenêtre de connexion modale -->
 					<div class="modal fade" id="modal_connexion" tabindex="-1" aria-hidden="true">
@@ -33,20 +33,22 @@
 						<div class="modal-content">
 						  <div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Connectez-vous !</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							<button type="button" id="btn_close_connexion" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						  </div>
-						  <div class="modal-body">
-							<form>
-								<label for="labelInputPseudo" class="form-label">Pseudo</label>
-								<input type="text" class="form-control" id="inputPseudo">
-								<label for="labelInputPwd" class="form-label">Mot de passe</label>
-								<input type="text" class="form-control" id="inputPwd">
+						  <form action="/connexion" method="POST">
+							<div class="modal-body">
+										<div id="alert-connexion">
+										</div>
+										<label for="labelInputPseudo" class="form-label">Pseudo</label>
+										<input type="text" class="form-control" id="inputPseudoConnexion" name="inputPseudoConnexion">
+										<label for="labelInputPwd" class="form-label">Mot de passe</label>
+										<input type="text" class="form-control" id="inputPwdConnexion" name="inputPwdConnexion">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+									<button type="button" onclick="connexionSubmit()" class="btn btn-success">Connexion</button>
+								</div>
 							</form>
-						  </div>
-						  <div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-							<button type="button" class="btn btn-success">Connexion</button>
-						  </div>
 						</div>
 					  </div>
 					</div>
@@ -59,20 +61,31 @@
 							<h5 class="modal-title" id="exampleModalLabel">Rejoignez-nous !</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						  </div>
-						  <div class="modal-body">
-							<form>
-								<label for="labelInputPseudo" class="form-label">Pseudo</label>
-								<input type="text" class="form-control" id="inputPseudo">
-								<label for="labelInputPwd" class="form-label">Mot de passe</label>
-								<input type="text" class="form-control" id="inputPwd">
-							</form>
-						  </div>
-						  <div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-							<button type="button" class="btn btn-success">Créer le compte</button>
-						  </div>
+						  <form method="post" action="/creationcompte">
+							<div class="modal-body">
+									<label for="labelInputPseudo" class="form-label">Pseudo</label>
+									<input type="text" class="form-control" name="inputPseudoInscription" id="inputPseudoInscription">
+									<label for="labelInputPwd" class="form-label">Mot de passe</label>
+									<input type="text" class="form-control" name="inputPwdInscription" id="inputPwdInscription">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+								<button type="submit" class="btn btn-success">Créer le compte</button>
+							</div>
+						</form>
 						</div>
 					  </div>
+					</div>
+				</div>
+				<div id="entete-connectee" class="col-lg-3 text-center text-lg-start mt-2 mt-lg-0 d-none">
+					<div class="dropdown">
+						<button class="btn btn-success dropdown-toggle" type="button" id="id-pseudo" data-bs-toggle="dropdown" aria-expanded="false">
+						  Dropdown button
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						  <li><a class="dropdown-item" href="/administration">Administration</a></li>
+						  <li><a class="dropdown-item" href="/deconnexion">Deconnexion</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -84,32 +97,28 @@
 					<div class="card h-100">
 						<h5 class="card-header text-center">Ajouter un film</h5>
 						<div class="card-body">
-							<form>
+							<form method="post">
 								<div class="row">
 									<div class="col-lg-6">
 										<label for="input_nom_film" class="form-label">Nom</label>
 										<input type="text" class="form-control" id="input_nom_film">
 									</div>
 									<div class="col-lg-6">
-										<label for="input_realisateur_film" class="form-label">Réalisateur</label>
-										<input type="text" class="form-control" id="input_realisateur_film">
+										<label for="input_description_film" class="form-label">Description</label>
+										<input type="text" class="form-control" id="input_description_film">
 									</div>
 								</div>
 								<br/>
 								<div class="row">
-									<div class="col-lg-6">
-										<label for="input_date_sortie_film" class="form-label">Date de sortie</label>
-										<input type="date" class="form-control" id="input_date_sortie_film">
-									</div>
-									<div class="col-lg-6">
-										<label for="input_duree_film" class="form-label">Durée</label>
-										<input type="time" class="form-control" id="input_duree_film">
+									<div class="col-lg-12">
+										<label for="input_image_film" class="form-label">Url image (http)</label>
+										<input type="text" class="form-control" id="input_image_film">
 									</div>
 								</div>
 								<br/>
 								<div class="row text-end">
 									<div class="col-lg-12">
-										<button type="button" class="btn btn-success">Ajouter</button>
+										<button type="button" onclick="ajouterFilm()" class="btn btn-success">Ajouter</button>
 									</div>
 								</div>
 							</form>	
@@ -244,4 +253,6 @@
 		</div>
 	</body>
 </html>
+<script src="../controllers/accueil.js"></script>
+<script src="../controllers/admin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -1,3 +1,21 @@
+window.addEventListener("load", function(event) {
+    checkSession();
+    recupererFilmRecent();
+  });
+
+function recupererFilmRecent(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+           // Typical action to be performed when the document is ready:
+           console.log(this.responseText);
+          // alert(this.responseText);
+        }
+    };
+    xhttp.open("GET", "recupererFilmRecent", true);
+    xhttp.send();
+}
+
 function checkSession () {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -44,6 +62,7 @@ function connexionSubmit (){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 
+            var msgErreur = document.getElementById("alert-connexion");
 
             if (this.responseText){
                 // Connexion ok
@@ -54,7 +73,6 @@ function connexionSubmit (){
                 gererEntete(this.responseText);          
             } else {
                 // Connexion nok
-                var msgErreur = document.getElementById("alert-connexion");
 
                 var bandeauErreur = 
                 '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
