@@ -180,11 +180,11 @@ app.get('/administration',function(req, res) {
   }
 });
 
-app.listen(PORT, function () {
+/*app.listen(PORT, function () {
     console.log(
       "Example app listening on port 3000! Go to https://localhost:3000/"
     );
-  });
+  });*/
 
   // Starting both http & https servers
 const httpServer = http.createServer(app);
