@@ -5,6 +5,20 @@ const db = require("./db");
 const bodyParser = require('body-parser');
 const sessions = require('express-session');
 const { json } = require('express');
+const http = require('http');
+const https = require('https');
+
+const privateKey = fs.readFileSync('../certs/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('../certs/cert.pem', 'utf8');
+const ca = fs.readFileSync('../certs/chain.pem', 'utf8');
+
+const credentials = {
+	key: privateKey,
+	cert: certificate,
+	ca: ca
+};
+
+
 
 const PORT = process.env.PORT || 3000;
 const HOST = '0.0.0.0';
@@ -172,4 +186,14 @@ app.listen(PORT, function () {
     );
   });
 
-  
+  // Starting both http & https servers
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(80, () => {
+	console.log('HTTP Server running on port 80');
+});
+
+httpsServer.listen(443, () => {
+	console.log('HTTPS Server running on port 443');
+});
