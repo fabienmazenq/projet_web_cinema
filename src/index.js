@@ -28,7 +28,7 @@ var creationTable = function (req, res, next) {
     admin['admin'] = true;
     var jsonData = JSON.stringify(admin);
     db.insertUser(jsonData,function(retour){});
-    db.insertFilm("",function(retour){});
+   // db.insertFilm("",function(retour){});
 
     next();
   });
@@ -85,9 +85,10 @@ app.get('/', function(req, res)  {
 });
 
 app.get('/film/:id', function(req, res) {
-   res.sendFile(path.join(__dirname, 'views/test.html'));
+   res.sendFile(path.join(__dirname, 'views','test.html'));
 });
 app.get('/recupererFilmRecent', function(req, res) {
+  
     db.getAllFilm(function(err,retour){
       if(err)
         res.send(err.message);
@@ -108,7 +109,6 @@ app.get('/checkSession', function(req, res) {
 app.post('/connexion', function(req, res)  {
 
   db.checkLogin(JSON.stringify(req.body),function (retour){
-    console.log("retour");
     if (retour == true){
       sessionCourante = req.session;
       sessionCourante.pseudo = req.body.pseudo;
@@ -121,6 +121,18 @@ app.post('/connexion', function(req, res)  {
     }
   }); 
 });
+
+app.post('/ajouterFilm', function(req, res)  {
+
+  db.insertFilm(JSON.stringify(req.body),function (err,retour){
+    if (err){
+      res.send(err);
+    } else {
+        res.send("Ajout du film avec succès");
+    }
+  }); 
+});
+
 
 app.post('/creationcompte', function(req, res) {
 
@@ -144,6 +156,14 @@ app.get('/deconnexion',function(req, res) {
       }
       res.redirect('/');
   });
+});
+app.get('/administration',function(req, res) {
+  sessionCourante=req.session;
+  if(sessionCourante.pseudo){
+    res.sendFile(path.join(__dirname, 'views','admin.html'));
+  }else{
+    res.sendFile(path.join(__dirname, 'views','accueil.html'));
+  }
 });
 
 app.listen(PORT, function () {

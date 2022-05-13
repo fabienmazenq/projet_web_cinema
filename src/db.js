@@ -103,21 +103,23 @@ function insertUser (jsonInsertUser, retour){
 }
 
 function insertFilm (jsonFilmInfo, retour){
-	var sqlCheckExiste = "SELECT * FROM film WHERE nom = 'Melancholia'";
+
+	var film = JSON.parse(jsonFilmInfo);
+	var sqlCheckExiste = "SELECT * FROM film WHERE nom = '" + film.nom + "'";
 	ligneExiste(sqlCheckExiste, function (result){
-		console.log("insert film valeur de retour de ligne existe " + result);
 		if (result == true){
 			console.log("on ajoute pas");
-			retour("Le film existe déjà, on ajoute pas");
+			retour("Le film existe déjà, on ajoute pas",null);
 		} else{
 			console.log ("on ajoute");
-			var sqlInsertFIlm = "INSERT INTO film (nom,description,image) VALUES ('Melancholia','Film''d acception de la mort et de la catastrophe','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjbw_9tSkgBaS67OFEtdTpujQ6ddAktyXmwBzb1xtyyavQWcb');";
+			film.description = film.description.replaceAll('\'', '\'\'');
+			var sqlInsertFIlm = "INSERT INTO film (nom,description,image) VALUES ('" + film.nom  + "','" + film.description + "','" + film.image + "');";
 
 			execute(sqlInsertFIlm,function (err, result){
 				if (err){
-					retour("Erreur lors de l'ajout du film : " + err.message);
+					retour("Erreur lors de l'ajout du film : " + err.message,null);
 				} else {
-					retour("Ajout du film ok " + result);
+					retour(null, result);
 				}
 			});
 		}
