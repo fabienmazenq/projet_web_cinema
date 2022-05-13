@@ -8,9 +8,32 @@ function recupererFilmRecent(){
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-           // Typical action to be performed when the document is ready:
-           console.log(this.responseText);
-           alert(this.responseText);
+           var list_film = JSON.parse(this.responseText);
+           var i = 1;
+           list_film.forEach(function(film){
+           });
+
+           // On génère le vueJs pour l'affichage des films
+           let card = {
+               props: ['titre', 'id', 'descr', 'img'],
+               template: '<div class="col-md-2 col-6">'
+                            + '<div class="card m-2">'
+                                + '<img v-bind:src="img" class="card-img-top" alt="...">'
+                                + '<div class="card-body p-0">'
+                                    + '<p class="card-text text-center fw-bold">9</p>'
+                                + '</div>'
+                            + '</div>'
+                            + '<p class="card-text text-center fw-bold">{{ titre }}</p>'
+                        +'</div>',
+           }
+
+           let app1 = new Vue({
+                el: '#app',
+                data:{
+                    films:list_film
+                },
+                components: {card},
+            });
         }
     };
     xhttp.open("GET", "recupererFilmRecent", true);
