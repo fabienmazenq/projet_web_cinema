@@ -18,7 +18,6 @@ services:
     depends_on:
       - mysql
     ports:
-      - 80:80
       - 443:443
   mysql:
     image: mariadb:10.8
