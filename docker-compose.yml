@@ -19,7 +19,8 @@ services:
       - mysql
     ports:
       - 3000:3000
-
+      - 80:80
+      - 443:443
   mysql:
     image: mariadb:10.8
     environment:
