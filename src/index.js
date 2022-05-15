@@ -16,7 +16,6 @@ const ca = fs.readFileSync(path.join(__dirname,'../certs/chain.pem'), 'utf8');
 const certificate = fs.readFileSync("certs/cert.pem");
 const ca = fs.readFileSync("certs/chain.pem");*/
 
-fs.readFileSync("certs/server.key")
 
 const credentials = {
 	key: privateKey,
