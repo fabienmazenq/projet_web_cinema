@@ -8,13 +8,13 @@ const { json } = require('express');
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
-/*const privateKey = fs.readFileSync(path.join(__dirname,'../certs/privkey.pem'), 'utf8');
+const privateKey = fs.readFileSync(path.join(__dirname,'../certs/privkey.pem'), 'utf8');
 const certificate = fs.readFileSync(path.join(__dirname,'../certs/cert.pem'), 'utf8');
-const ca = fs.readFileSync(path.join(__dirname,'../certs/chain.pem'), 'utf8');*/
+const ca = fs.readFileSync(path.join(__dirname,'../certs/chain.pem'), 'utf8');
 
-const privateKey = fs.readFileSync("certs/privkey.pem");
+/*const privateKey = fs.readFileSync("certs/privkey.pem");
 const certificate = fs.readFileSync("certs/cert.pem");
-const ca = fs.readFileSync("certs/chain.pem");
+const ca = fs.readFileSync("certs/chain.pem");*/
 
 fs.readFileSync("certs/server.key")
 
