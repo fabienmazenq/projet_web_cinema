@@ -7,7 +7,7 @@ services:
   node:
     build: .
     environment:
-      PORT: 443
+      PORT: 3000
       DATABASE_HOST: mysql
       DATABASE_PORT: 3306
       DATABASE_USERNAME: "user"
